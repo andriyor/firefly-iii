@@ -2,7 +2,8 @@
 @section('content')
     <!-- TODO internals modal voor pagina settings -->
     <!-- TODO wizard modal voor weet ik veel -->
-    @if($currencies->count() > 1)
+    {{-- Only with "Display amounts in your primary currency" on: otherwise the primary currency changes nothing shown. --}}
+    @if($convertToPrimary && $currencies->count() > 1)
         <div class="d-print-none mb-2 text-end">
             <div class="btn-group btn-group-sm" role="group" aria-label="{{ __('firefly.primary_currency_switch') }}">
                 @foreach($currencies as $currency)
